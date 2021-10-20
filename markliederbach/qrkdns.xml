@@ -4,65 +4,43 @@
     <Repository>markliederbach/qrkdns</Repository>
     <Registry>https://hub.docker.com/r/markliederbach/qrkdns</Registry>
     <Network>bridge</Network>
-    <MyIP />
-    <Shell>sh</Shell>
     <Privileged>false</Privileged>
     <Support>https://github.com/markliederbach/qrkdns/issues</Support>
     <Project>https://github.com/markliederbach/qrkdns</Project>
-    <Overview>This agent automatically discovers the current host's external IP address, and updates a given DNS A record in Cloudflare with the value.</Overview>
+    <Overview>This agent periodically discovers the current host's external IP address, and updates a given DNS A record in Cloudflare with the value.</Overview>
     <Category>HomeAutomation: Network:DNS Status:Beta</Category>
-    <WebUI />
-    <TemplateURL />
-    <Icon />
+    <Icon>https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/qrkdns-logo.png</Icon>
     <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
     <PostArgs>sync cron</PostArgs>
-    <CPUset />
-    <DateInstalled>1634674964</DateInstalled>
-    <DonateText />
-    <DonateLink />
-    <Description>This agent automatically discovers the current host's external IP address, and updates a given DNS A record in Cloudflare with the value.</Description>
+    <Description>This agent periodically discovers the current host's external IP address, and updates a given DNS A record in Cloudflare with the value.</Description>
     <Networking>
         <Mode>bridge</Mode>
-        <Publish />
     </Networking>
-    <Data />
     <Environment>
         <Variable>
-            <Value />
             <Name>NETWORK_ID</Name>
-            <Mode />
         </Variable>
         <Variable>
-            <Value />
             <Name>DOMAIN_NAME</Name>
-            <Mode />
         </Variable>
         <Variable>
-            <Value />
             <Name>CLOUDFLARE_ACCOUNT_ID</Name>
-            <Mode />
         </Variable>
         <Variable>
-            <Value />
             <Name>CLOUDFLARE_API_TOKEN</Name>
-            <Mode />
         </Variable>
         <Variable>
-            <Value />
             <Name>LOG_LEVEL</Name>
-            <Mode />
         </Variable>
         <Variable>
-            <Value />
             <Name>SCHEDULE</Name>
-            <Mode />
         </Variable>
     </Environment>
     <Labels />
-    <Config Name="NETWORK_ID" Target="NETWORK_ID" Default="" Mode="" Description="Subdomain name to update in DNS" Type="Variable" Display="always" Required="true" Mask="false" />
-    <Config Name="DOMAIN_NAME" Target="DOMAIN_NAME" Default="" Mode="" Description="The base domain" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="NETWORK_ID" Target="NETWORK_ID" Default="" Mode="" Description="Subdomain" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="DOMAIN_NAME" Target="DOMAIN_NAME" Default="" Mode="" Description="Base domain" Type="Variable" Display="always" Required="true" Mask="false" />
     <Config Name="CLOUDFLARE_ACCOUNT_ID" Target="CLOUDFLARE_ACCOUNT_ID" Default="" Mode="" Description="Cloudflare Account ID" Type="Variable" Display="always" Required="true" Mask="false" />
     <Config Name="CLOUDFLARE_API_TOKEN" Target="CLOUDFLARE_API_TOKEN" Default="" Mode="" Description="Cloudflare API Token" Type="Variable" Display="always" Required="true" Mask="true" />
-    <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="INFO" Mode="" Description="Container Log Level" Type="Variable" Display="advanced" Required="false" Mask="false" />
+    <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="DEBUG" Mode="" Description="Container Log Level (default: DEBUG)" Type="Variable" Display="advanced" Required="false" Mask="false" />
     <Config Name="SCHEDULE" Target="SCHEDULE" Default="*/30 * * * *" Mode="" Description="Cron Schedule (default every 30 minutes)" Type="Variable" Display="advanced" Required="false" Mask="false" />
 </Container>
