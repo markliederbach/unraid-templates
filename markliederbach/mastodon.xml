@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>mastodon-web</Name>
+    <Repository>tootsuite/mastodon</Repository>
+    <Registry>https://hub.docker.com/r/tootsuite/mastodon</Registry>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/mastodon/mastodon/issues</Support>
+    <Project>https://github.com/mastodon/mastodon</Project>
+    <Overview>Runs the main web interface for Mastodon.</Overview>
+    <Category>Other Status:Beta</Category>
+    <Icon>https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/mastodon-logo.png</Icon>
+    <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
+    <Description>Runs the main web interface for Mastodon.</Description>
+    <Networking>
+        <Mode>bridge</Mode>
+    </Networking>
+    <Environment>
+        <Variable>
+            <Name>LOCAL_DOMAIN</Name>
+        </Variable>
+        <Variable>
+            <Name>SINGLE_USER_MODE</Name>
+        </Variable>
+        <Variable>
+            <Name>SECRET_KEY_BASE</Name>
+        </Variable>
+        <Variable>
+            <Name>OTP_SECRET</Name>
+        </Variable>
+        <Variable>
+            <Name>VAPID_PUBLIC_KEY</Name>
+        </Variable>
+        <Variable>
+            <Name>VAPID_PRIVATE_KEY</Name>
+        </Variable>
+        <Variable>
+            <Name>DB_HOST</Name>
+        </Variable>
+        <Variable>
+            <Name>DB_USER</Name>
+        </Variable>
+        <Variable>
+            <Name>DB_NAME</Name>
+        </Variable>
+        <Variable>
+            <Name>DB_PASS</Name>
+        </Variable>
+        <Variable>
+            <Name>DB_PORT</Name>
+        </Variable>
+        <Variable>
+            <Name>REDIS_HOST</Name>
+        </Variable>
+        <Variable>
+            <Name>REDIS_PORT</Name>
+        </Variable>
+        <Variable>
+            <Name>REDIS_PASSWORD</Name>
+        </Variable>
+        <Variable>
+            <Name>ES_ENABLED</Name>
+        </Variable>
+        <Variable>
+            <Name>ES_HOST</Name>
+        </Variable>
+        <Variable>
+            <Name>ES_PORT</Name>
+        </Variable>
+        <Variable>
+            <Name>SMTP_SERVER</Name>
+        </Variable>
+        <Variable>
+            <Name>SMTP_PORT</Name>
+        </Variable>
+        <Variable>
+            <Name>SMTP_LOGIN</Name>
+        </Variable>
+        <Variable>
+            <Name>SMTP_PASSWORD</Name>
+        </Variable>
+        <Variable>
+            <Name>SMTP_FROM_ADDRESS</Name>
+        </Variable>
+        <Variable>
+            <Name>S3_ENABLED</Name>
+        </Variable>
+        <Variable>
+            <Name>S3_BUCKET</Name>
+        </Variable>
+        <Variable>
+            <Name>AWS_ACCESS_KEY_ID</Name>
+        </Variable>
+        <Variable>
+            <Name>AWS_SECRET_ACCESS_KEY</Name>
+        </Variable>
+        <Variable>
+            <Name>S3_ALIAS_HOST</Name>
+        </Variable>
+    </Environment>
+    <Labels />
+    <Config Name="LOCAL_DOMAIN" Target="LOCAL_DOMAIN" Default="" Mode="" Description="External Domain for Mastodon" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="SINGLE_USER_MODE" Target="SINGLE_USER_MODE" Default="true" Mode="" Description="Whether only one user is permitted" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="SECRET_KEY_BASE" Target="SECRET_KEY_BASE" Default="" Mode="" Description="Secret Key Base" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="OTP_SECRET" Target="OTP_SECRET" Default="" Mode="" Description="SMTP Password" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="VAPID_PUBLIC_KEY" Target="VAPID_PUBLIC_KEY" Default="" Mode="" Description="Vapid Public Key" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="VAPID_PRIVATE_KEY" Target="VAPID_PRIVATE_KEY" Default="" Mode="" Description="Vapid Private Key" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="DB_HOST" Target="DB_HOST" Default="" Mode="" Description="Postgresql Host" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="DB_PORT" Target="DB_PORT" Default="5432" Mode="" Description="Postgresql Database Port" Type="Variable" Display="advanced" Required="false" Mask="false" />
+    <Config Name="DB_USER" Target="DB_USER" Default="mastodon" Mode="" Description="Postgresql User" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="DB_NAME" Target="DB_NAME" Default="mastodon" Mode="" Description="Postgresql Database Name" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="DB_PASS" Target="DB_PASS" Default="" Mode="" Description="Postgresql Password" Type="Variable" Display="always" Required="true" Mask="true" />
+    <Config Name="REDIS_HOST" Target="REDIS_HOST" Default="" Mode="" Description="Redis Host" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="REDIS_PORT" Target="REDIS_PORT" Default="6379" Mode="" Description="Redis Port" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="REDIS_PASSWORD" Target="REDIS_PASSWORD" Default="" Mode="" Description="Redis password" Type="Variable" Display="always" Required="false" Mask="true" />
+    <Config Name="ES_ENABLED" Target="ES_ENABLED" Default="false" Mode="" Description="Enable full-text search" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="ES_HOST" Target="ES_HOST" Default="" Mode="" Description="Elasticsearch Host" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="ES_PORT" Target="ES_PORT" Default="9200" Mode="" Description="Elasticsearch Port" Type="Variable" Display="always" Required="false" Mask="false" />
+    <Config Name="SMTP_SERVER" Target="SMTP_SERVER" Default="" Mode="" Description="SMTP Host" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="SMTP_PORT" Target="SMTP_PORT" Default="587" Mode="" Description="SMTP Port" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="SMTP_LOGIN" Target="SMTP_LOGIN" Default="" Mode="" Description="SMTP User" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="SMTP_PASSWORD" Target="SMTP_PASSWORD" Default="" Mode="" Description="SMTP Password" Type="Variable" Display="always" Required="true" Mask="true" />
+    <Config Name="SMTP_FROM_ADDRESS" Target="SMTP_FROM_ADDRESS" Default="" Mode="" Description="SMTP From Address" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="S3_ENABLED" Target="S3_ENABLED" Default="false" Mode="" Description="Whether to store files in AWS S3" Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="S3_BUCKET" Target="S3_BUCKET" Default="" Mode="" Description="AWS S3 Bucket" Type="Variable" Display="always" Required="false" Mask="false" />
+    <Config Name="AWS_ACCESS_KEY_ID" Target="AWS_ACCESS_KEY_ID" Default="" Mode="" Description="AWS IAM User Key ID" Type="Variable" Display="always" Required="false" Mask="false" />
+    <Config Name="AWS_SECRET_ACCESS_KEY" Target="AWS_SECRET_ACCESS_KEY" Default="" Mode="" Description="AWS IAM User Key Secret" Type="Variable" Display="always" Required="false" Mask="true" />
+    <Config Name="S3_ALIAS_HOST" Target="S3_ALIAS_HOST" Default="" Mode="" Description="Alias domain of bucket" Type="Variable" Display="always" Required="false" Mask="false" />
+</Container>
