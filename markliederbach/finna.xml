@@ -13,8 +13,9 @@
     <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
     <Description>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file ready for import into Stock Events</Description>
     <Networking>
-        <Mode>bridge</Mode>
+        <Mode>proxynet</Mode>
     </Networking>
+    <WebUI>http://[IP]:[PORT:8484]</WebUI>
     <Environment>
         <Variable>
             <Name>BASE_URL</Name>
