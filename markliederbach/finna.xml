@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>finna</Name>
+    <Repository>markliederbach/finna</Repository>
+    <Registry>https://hub.docker.com/r/markliederbach/finna-api</Registry>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/markliederbach/finna/issues</Support>
+    <Project>https://github.com/markliederbach/finna</Project>
+    <Overview>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file
+        ready for import into Stock Events</Overview>
+    <Category>HomeAutomation: Network:DNS Status:Beta</Category>
+    <Icon>
+        https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/rocket.png</Icon>
+    <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
+    <Description>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file
+        ready for import into Stock Events</Description>
+    <Networking>
+        <Mode>bridge</Mode>
+    </Networking>
+    <Environment>
+        <Variable>
+            <Name>BASE_URL</Name>
+        </Variable>
+        <Variable>
+            <Name>LOG_LEVEL</Name>
+        </Variable>
+    </Environment>
+    <Labels />
+    <Config Name="BASE_URL" Target="BASE_URL" Default="" Mode=""
+        Description="Unraid domain"
+        Type="Variable" Display="always" Required="true" Mask="false" />
+    <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="DEBUG" Mode=""
+        Description="Container Log Level (default: DEBUG)" Type="Variable" Display="advanced"
+        Required="false" Mask="false" />
+</Container>
