@@ -7,14 +7,11 @@
     <Privileged>false</Privileged>
     <Support>https://github.com/markliederbach/finna/issues</Support>
     <Project>https://github.com/markliederbach/finna</Project>
-    <Overview>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file
-        ready for import into Stock Events</Overview>
+    <Overview>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file ready for import into Stock Events</Overview>
     <Category>HomeAutomation: Network:DNS Status:Beta</Category>
-    <Icon>
-        https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/rocket.png</Icon>
+    <Icon>https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/rocket.png</Icon>
     <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
-    <Description>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file
-        ready for import into Stock Events</Description>
+    <Description>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file ready for import into Stock Events</Description>
     <Networking>
         <Mode>bridge</Mode>
     </Networking>
