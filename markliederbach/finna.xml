@@ -16,13 +16,13 @@
         <Mode>proxynet</Mode>
         <Publish>
             <Port>
-                <HostPort>8484</HostPort>
-                <ContainerPort>8080</ContainerPort>
+                <HostPort>8784</HostPort>
+                <ContainerPort>8784</ContainerPort>
                 <Protocol>tcp</Protocol>
             </Port>
         </Publish>
     </Networking>
-    <WebUI>http://[IP]:[PORT:8484]/</WebUI>
+    <WebUI>http://[IP]:[PORT:8784]/</WebUI>
     <Environment>
         <Variable>
             <Name>BASE_URL</Name>
@@ -38,6 +38,6 @@
     <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="DEBUG" Mode=""
         Description="Container Log Level (default: DEBUG)" Type="Variable" Display="advanced"
         Required="false" Mask="false" />
-    <Config Type="Port" Name="Web Interface Port" Target="8080" Default="8080" Mode="tcp" Display="advanced" Required="true"
-        Description="Port on the docker container for the web UI">8080</Config>
+    <Config Type="Port" Name="Web Interface Port" Target="8784" Default="8784" Mode="tcp" Display="advanced" Required="true"
+        Description="Port on the docker container for the web UI">8784</Config>
 </Container>
