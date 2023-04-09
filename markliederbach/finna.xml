@@ -14,6 +14,13 @@
     <Description>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file ready for import into Stock Events</Description>
     <Networking>
         <Mode>proxynet</Mode>
+        <Publish>
+            <Port>
+                <HostPort>8484</HostPort>
+                <ContainerPort>8080</ContainerPort>
+                <Protocol>tcp</Protocol>
+            </Port>
+        </Publish>
     </Networking>
     <WebUI>http://[IP]:[PORT:8484]/</WebUI>
     <Environment>
