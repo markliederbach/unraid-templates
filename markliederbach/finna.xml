@@ -3,7 +3,7 @@
     <Name>finna</Name>
     <Repository>markliederbach/finna-api</Repository>
     <Registry>https://hub.docker.com/r/markliederbach/finna-api</Registry>
-    <Network>bridge</Network>
+    <Network>proxynet</Network>
     <Privileged>false</Privileged>
     <Support>https://github.com/markliederbach/finna/issues</Support>
     <Project>https://github.com/markliederbach/finna</Project>
