@@ -12,35 +12,13 @@
     <Icon>https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/qrkdns-logo.png</Icon>
     <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
     <PostArgs>sync cron</PostArgs>
-    <Description>This agent periodically discovers the current host's external IP address, and updates a given DNS A record in Cloudflare with the value.</Description>
     <Networking>
         <Mode>bridge</Mode>
     </Networking>
-    <Environment>
-        <Variable>
-            <Name>NETWORK_ID</Name>
-        </Variable>
-        <Variable>
-            <Name>DOMAIN_NAME</Name>
-        </Variable>
-        <Variable>
-            <Name>CLOUDFLARE_ACCOUNT_ID</Name>
-        </Variable>
-        <Variable>
-            <Name>CLOUDFLARE_API_TOKEN</Name>
-        </Variable>
-        <Variable>
-            <Name>LOG_LEVEL</Name>
-        </Variable>
-        <Variable>
-            <Name>SCHEDULE</Name>
-        </Variable>
-    </Environment>
-    <Labels />
-    <Config Name="NETWORK_ID" Target="NETWORK_ID" Default="" Mode="" Description="Subdomain" Type="Variable" Display="always" Required="true" Mask="false" />
-    <Config Name="DOMAIN_NAME" Target="DOMAIN_NAME" Default="" Mode="" Description="Base domain" Type="Variable" Display="always" Required="true" Mask="false" />
-    <Config Name="CLOUDFLARE_ACCOUNT_ID" Target="CLOUDFLARE_ACCOUNT_ID" Default="" Mode="" Description="Cloudflare Account ID" Type="Variable" Display="always" Required="true" Mask="false" />
-    <Config Name="CLOUDFLARE_API_TOKEN" Target="CLOUDFLARE_API_TOKEN" Default="" Mode="" Description="Cloudflare API Token" Type="Variable" Display="always" Required="true" Mask="true" />
-    <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="DEBUG" Mode="" Description="Container Log Level (default: DEBUG)" Type="Variable" Display="advanced" Required="false" Mask="false" />
-    <Config Name="SCHEDULE" Target="SCHEDULE" Default="*/30 * * * *" Mode="" Description="Cron Schedule (default every 30 minutes)" Type="Variable" Display="advanced" Required="false" Mask="false" />
+    <Config Default="" Description="Subdomain" Display="always" Mask="false" Mode="" Name="NETWORK_ID" Required="true" Target="NETWORK_ID" Type="Variable" />
+    <Config Default="" Description="Base domain" Display="always" Mask="false" Mode="" Name="DOMAIN_NAME" Required="true" Target="DOMAIN_NAME" Type="Variable" />
+    <Config Default="" Description="Cloudflare Account ID" Display="always" Mask="false" Mode="" Name="CLOUDFLARE_ACCOUNT_ID" Required="true" Target="CLOUDFLARE_ACCOUNT_ID" Type="Variable" />
+    <Config Default="" Description="Cloudflare API Token" Display="always" Mask="true" Mode="" Name="CLOUDFLARE_API_TOKEN" Required="true" Target="CLOUDFLARE_API_TOKEN" Type="Variable" />
+    <Config Default="DEBUG" Description="Container Log Level (default: DEBUG)" Display="advanced" Mask="false" Mode="" Name="LOG_LEVEL" Required="false" Target="LOG_LEVEL" Type="Variable" />
+    <Config Default="*/30 * * * *" Description="Cron Schedule (default every 30 minutes)" Display="advanced" Mask="false" Mode="" Name="SCHEDULE" Required="false" Target="SCHEDULE" Type="Variable" />
 </Container>

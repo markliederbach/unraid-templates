@@ -1,10 +1,9 @@
 local unraid = import 'lib/unraid.libsonnet';
 
 local sharedDescription = "This agent periodically discovers the current host's external IP address, and updates a given DNS A record in Cloudflare with the value.";
-local appPort = '8784';
 local network = 'bridge';
 
-local containerQrkDNS = unraid.Container
+local container = unraid.Container
     .withName('qrkdns')
     .withRepository('markliederbach/qrkdns')
     .withRegistry('https://hub.docker.com/r/markliederbach/qrkdns')
@@ -21,7 +20,6 @@ local containerQrkDNS = unraid.Container
     .withIcon('qrkdns-logo')
     .withLogRotation()
     .withPostArgs('sync cron')
-    .withDescription(sharedDescription)
     .withNetworking(network, [])
     .withConfigVariables([
       {
@@ -60,8 +58,7 @@ local containerQrkDNS = unraid.Container
     ])
 
   ;
-    // .withWebUI(appPort, '/')
 
 {
-  'qrkdns.xml': containerQrkDNS.toXML()
+  container:: container
 }

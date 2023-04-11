@@ -3,7 +3,7 @@ version: "3"
 vars:
   TOOL_BIN:
     sh: echo "$(pwd)/bin"
-  OUTPUT_DIR: templates
+  OUTPUT_DIR: markliederbach
   JSONNET_DIR: jsonnet
 
 tasks:
@@ -12,7 +12,7 @@ tasks:
     cmds:
       - mkdir -p {{.OUTPUT_DIR}}
       - |
-        {{.TOOL_BIN}}/jsonnet --jpath {{.JSONNET_DIR}} --create-output-dirs --multi {{.OUTPUT_DIR}} --string jsonnet/qrkdns.jsonnet
+        {{.TOOL_BIN}}/jsonnet --jpath {{.JSONNET_DIR}} --create-output-dirs --multi {{.OUTPUT_DIR}} --string {{.JSONNET_DIR}}/all.jsonnet
   jsonnet:
     vars:
       VERSION: "0.19.1"

@@ -100,10 +100,6 @@ local xml = import 'xml.libsonnet';
       self.simpleElement('PostArgs', value)
     ),
 
-    withDescription(value):: (
-      self.simpleElement('Description', value)
-    ),
-
     withWebUI(port, path):: (
       self.simpleElement('WebUI', std.format('http://[IP]:[PORT:%s]%s', [port, path]))
     ),
