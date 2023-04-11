@@ -9,6 +9,8 @@ vars:
 tasks:
   render:
     desc: "Render jsonnet files"
+    deps:
+      - jsonnet
     cmds:
       - mkdir -p {{.OUTPUT_DIR}}
       - |
