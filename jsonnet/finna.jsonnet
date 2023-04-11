@@ -47,6 +47,7 @@ local container = unraid.Container
       {
         name: 'Web Interface Port',
         target: appPort,
+        default: appPort,
         description: 'Port on the docker container for the web UI',
         display: 'advanced',
         required: true,
