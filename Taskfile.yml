@@ -1,0 +1,45 @@
+version: "3"
+
+vars:
+  TOOL_BIN:
+    sh: echo "$(pwd)/bin"
+  OUTPUT_DIR: markliederbach
+  JSONNET_DIR: jsonnet
+
+tasks:
+  render:
+    desc: "Render jsonnet files"
+    deps:
+      - jsonnet
+    cmds:
+      - mkdir -p {{.OUTPUT_DIR}}
+      - |
+        {{.TOOL_BIN}}/jsonnet --jpath {{.JSONNET_DIR}} --create-output-dirs --multi {{.OUTPUT_DIR}} --string {{.JSONNET_DIR}}/all.jsonnet
+  jsonnet:
+    vars:
+      VERSION: "0.19.1"
+    cmds:
+      - task: go-get-tool
+        vars:
+          TOOL_NAME: jsonnet
+          TOOL_SRC: github.com/google/go-jsonnet/cmd/jsonnet@v{{.VERSION}}
+    status:
+      - '[[ $({{.TOOL_BIN}}/jsonnet --version) == *"{{.VERSION}}"* ]]'
+  go-get-tool:
+    desc: "`go get` for a tool and install it to local bin"
+    silent: true
+    cmds:
+      - |
+        set -e
+        mkdir -p {{.TOOL_BIN}}
+        echo "Downloading {{.TOOL_SRC}}"
+        GOBIN={{.TOOL_BIN}} GOPROXY=direct go install {{.TOOL_SRC}}
+    status:
+      - test -f {{.TOOL_BIN}}/{{.TOOL_NAME}}
+    preconditions:
+      - sh: test ! -z "{{.TOOL_BIN}}"
+        msg: "TOOL_BIN must be set to an absolute path"
+      - sh: test ! -z "{{.TOOL_NAME}}"
+        msg: "TOOL_NAME is a required variable"
+      - sh: test ! -z "{{.TOOL_SRC}}"
+        msg: "TOOL_SRC is a required variable"

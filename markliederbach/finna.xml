@@ -11,7 +11,6 @@
     <Category>Tools: Productivity: Status:Beta</Category>
     <Icon>https://raw.githubusercontent.com/markliederbach/unraid-templates/main/markliederbach/images/rocket.png</Icon>
     <ExtraParams>--log-opt max-size=50m --log-opt max-file=1</ExtraParams>
-    <Description>Provides an easy way to Upload a Vanguard transaction report and receive a CSV file ready for import into Stock Events</Description>
     <Networking>
         <Mode>proxynet</Mode>
         <Publish>
@@ -23,21 +22,7 @@
         </Publish>
     </Networking>
     <WebUI>http://[IP]:[PORT:8784]/</WebUI>
-    <Environment>
-        <Variable>
-            <Name>BASE_URL</Name>
-        </Variable>
-        <Variable>
-            <Name>LOG_LEVEL</Name>
-        </Variable>
-    </Environment>
-    <Labels />
-    <Config Name="BASE_URL" Target="BASE_URL" Default="" Mode=""
-        Description="Unraid domain"
-        Type="Variable" Display="always" Required="true" Mask="false" />
-    <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="DEBUG" Mode=""
-        Description="Container Log Level (default: DEBUG)" Type="Variable" Display="advanced"
-        Required="false" Mask="false" />
-    <Config Type="Port" Name="Web Interface Port" Target="8784" Default="8784" Mode="tcp" Display="advanced" Required="true"
-        Description="Port on the docker container for the web UI">8784</Config>
+    <Config Default="" Description="Unraid domain" Display="always" Mask="false" Mode="" Name="BASE_URL" Required="true" Target="BASE_URL" Type="Variable" />
+    <Config Default="DEBUG" Description="Container Log Level (default: DEBUG)" Display="advanced" Mask="false" Mode="" Name="LOG_LEVEL" Required="false" Target="LOG_LEVEL" Type="Variable" />
+    <Config Default="" Description="Port on the docker container for the web UI" Display="advanced" Mask="false" Mode="tcp" Name="Web Interface Port" Required="true" Target="8784" Type="Port" />
 </Container>
