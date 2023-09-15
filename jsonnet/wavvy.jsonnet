@@ -24,7 +24,7 @@ local container = unraid.Container
       [
         {
           hostPort: appPort,
-          containerPort: appPort,
+          containerPort: '3000',
           protocol: 'tcp',
         },
       ]
